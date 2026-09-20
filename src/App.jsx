@@ -15,7 +15,7 @@ import {
   ZoomIn, ZoomOut, ChevronLeft, Send, RotateCcw, 
   ThumbsDown, AlertTriangle, Coffee, Play, PlayCircle, 
   Tv, MonitorPlay, Save, ChevronUp, Link as LinkIcon, 
-  UserCircle, Check
+  UserCircle, Check, Flame
 } from 'lucide-react';
 import { GlobalWorkerOptions } from "pdfjs-dist";
 import { PolicyAcceptanceModal } from './Policies';
