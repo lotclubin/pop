@@ -254,4 +254,4 @@ if __name__ == '__main__':
     print("  Exam Portal Server")
     print("  Open http://localhost:3000 in your browser")
     print("=" * 50)
-    app.run(host='0.0.0.0', port=3000, debug=False)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 3000)), debug=False)
