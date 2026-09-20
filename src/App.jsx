@@ -15,7 +15,7 @@ import {
   ZoomIn, ZoomOut, ChevronLeft, Send, RotateCcw, 
   ThumbsDown, AlertTriangle, Coffee, Play, PlayCircle, 
   Tv, MonitorPlay, Save, ChevronUp, Link as LinkIcon, 
-  UserCircle, Check, Flame
+  UserCircle, Check
 } from 'lucide-react';
 import { GlobalWorkerOptions } from "pdfjs-dist";
 import { PolicyAcceptanceModal } from './Policies';
@@ -303,13 +303,8 @@ export default function App() {
     // Actual loading logic would be triggered by interaction in PYQNavigator
   };
 
-  const persistUser = (u) => {
-    try { localStorage.setItem('paperbase_user', JSON.stringify(u)); } catch { /* storage unavailable */ }
-    setUser(u);
-  };
-
   if (!user) {
-    return authPage === 'login' ? <LoginPage onSignup={() => setAuthPage('signup')} onLogin={persistUser} /> : <SignupPage onLogin={() => setAuthPage('login')} onSignupSuccess={persistUser} />;
+    return authPage === 'login' ? <LoginPage onSignup={() => setAuthPage('signup')} onLogin={setUser} /> : <SignupPage onLogin={() => setAuthPage('login')} onSignupSuccess={setUser} />;
   }
 
   const renderContent = () => {
