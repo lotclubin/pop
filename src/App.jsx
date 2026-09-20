@@ -303,8 +303,13 @@ export default function App() {
     // Actual loading logic would be triggered by interaction in PYQNavigator
   };
 
+  const persistUser = (u) => {
+    try { localStorage.setItem('paperbase_user', JSON.stringify(u)); } catch { /* storage unavailable */ }
+    setUser(u);
+  };
+
   if (!user) {
-    return authPage === 'login' ? <LoginPage onSignup={() => setAuthPage('signup')} onLogin={setUser} /> : <SignupPage onLogin={() => setAuthPage('login')} onSignupSuccess={setUser} />;
+    return authPage === 'login' ? <LoginPage onSignup={() => setAuthPage('signup')} onLogin={persistUser} /> : <SignupPage onLogin={() => setAuthPage('login')} onSignupSuccess={persistUser} />;
   }
 
   const renderContent = () => {
